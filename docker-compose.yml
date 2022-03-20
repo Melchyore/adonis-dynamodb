@@ -1,0 +1,11 @@
+version: '3.8'
+services:
+  tests:
+    image: adonis-dynamodb
+    build:
+      context: .
+    environment:
+      AWS_ACCESS_KEY_ID: ${AWS_ACCESS_KEY_ID}
+      AWS_SECRET_ACCESS_KEY: ${AWS_SECRET_ACCESS_KEY}
+      AWS_REGION: ${AWS_REGION}
+    command: sh -c "npm run test:docker"
