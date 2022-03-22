@@ -15,11 +15,13 @@ jobs:
           paths:
             - node_modules
           key: v1-dependencies-{{ checksum "package.json" }}
-      - run: npm test
-      - environment:
-          AWS_ACCESS_KEY_ID: ${{ AWS_ACCESS_KEY_ID }}
-          AWS_SECRET_ACCESS_KEY: ${{ AWS_SECRET_ACCESS_KEY }}
-          AWS_REGION: ${{ AWS_REGION }}
+      - run:
+          name: Run tests
+          command: npm test
+          environment:
+            AWS_ACCESS_KEY_ID: ${{ AWS_ACCESS_KEY_ID }}
+            AWS_SECRET_ACCESS_KEY: ${{ AWS_SECRET_ACCESS_KEY }}
+            AWS_REGION: ${{ AWS_REGION }}
   build_latest:
     docker:
       - image: cimg/node:latest
@@ -35,11 +37,13 @@ jobs:
           paths:
             - node_modules
           key: v1-dependencies-{{ checksum "package.json" }}
-      - run: npm test
-      - environment:
-          AWS_ACCESS_KEY_ID: ${{ AWS_ACCESS_KEY_ID }}
-          AWS_SECRET_ACCESS_KEY: ${{ AWS_SECRET_ACCESS_KEY }}
-          AWS_REGION: ${{ AWS_REGION }}
+      - run:
+          name: Run tests
+          command: npm test
+          environment:
+            AWS_ACCESS_KEY_ID: ${{ AWS_ACCESS_KEY_ID }}
+            AWS_SECRET_ACCESS_KEY: ${{ AWS_SECRET_ACCESS_KEY }}
+            AWS_REGION: ${{ AWS_REGION }}
 workflows:
   version: 2
   workflow:
