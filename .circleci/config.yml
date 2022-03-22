@@ -15,9 +15,8 @@ jobs:
           paths:
             - node_modules
           key: v1-dependencies-{{ checksum "package.json" }}
-      - run:
-        command: npm test
-        environment:
+      - run: npm test
+      - environment:
           AWS_ACCESS_KEY_ID: ${{ AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ AWS_SECRET_ACCESS_KEY }}
           AWS_REGION: ${{ AWS_REGION }}
@@ -36,9 +35,8 @@ jobs:
           paths:
             - node_modules
           key: v1-dependencies-{{ checksum "package.json" }}
-      - run:
-        command: npm test
-        environment:
+      - run: npm test
+      - environment:
           AWS_ACCESS_KEY_ID: ${{ AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ AWS_SECRET_ACCESS_KEY }}
           AWS_REGION: ${{ AWS_REGION }}
