@@ -2,7 +2,7 @@ version: 2
 jobs:
   build_16.13.1:
     docker:
-      - image: circleci/node:16.13.1
+      - image: cimg/node:16.13.1
     working_directory: ~/app
     steps:
       - checkout
@@ -23,7 +23,7 @@ jobs:
           AWS_REGION: ${{ AWS_REGION }}
   build_latest:
     docker:
-      - image: circleci/node:latest
+      - image: cimg/node:latest
     working_directory: ~/app
     steps:
       - checkout
