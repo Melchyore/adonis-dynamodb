@@ -1,6 +1,6 @@
 {
   "name": "adonis-dynamodb",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "private": false,
   "main": "./build/providers/DynamoDBProvider.js",
   "types": "./build/adonis-typings/index.d.ts",
