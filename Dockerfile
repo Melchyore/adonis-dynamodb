@@ -17,8 +17,8 @@ RUN npm install -g nyc
 # Install peer dependencies
 RUN npm install @adonisjs/core
 
-RUN mkdir p ./.nyc_output
-#RUN mkdir p ./coverage
+RUN mkdir -p ./.nyc_output
+RUN mkdir -p ./coverage
 
 COPY . .
 
