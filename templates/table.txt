@@ -1,0 +1,20 @@
+import type { Query } from '@ioc:Adonis/Addons/DynamoDB'
+
+import { DynamoDB } from '@ioc:Adonis/Addons/DynamoDB'
+
+@DynamoDB.$Table({
+  name: '{{ filename }}'
+})
+export default class {{ filename }} extends DynamoDB.Table {
+  @DynamoDB.$PrimaryKey('{{ primaryKey }}')
+  public static readonly primaryKey: Query.PrimaryKey<{{ filename }}, number, void>
+
+  @DynamoDB.Attribute.Number()
+  public {{ primaryKey }}: number
+
+  @DynamoDB.Attribute.String()
+  public title: string
+
+  @DynamoDB.Attribute.Date()
+  public date: number | Date
+}

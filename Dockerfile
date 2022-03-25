@@ -9,6 +9,16 @@ RUN apk update && apk upgrade && \
 WORKDIR /usr/src/app
 
 COPY package*.json ./
+
 RUN npm install
+RUN npm install -g coveralls
+RUN npm install -g nyc
+
+# Install peer dependencies
+RUN npm install @adonisjs/core
+
+RUN mkdir p ./.nyc_output
+#RUN mkdir p ./coverage
 
 COPY . .
+

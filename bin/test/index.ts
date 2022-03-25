@@ -1,10 +1,7 @@
 import { expect } from '@japa/expect'
 import { assert } from '@japa/assert'
 import { specReporter } from '@japa/spec-reporter'
-import { runFailedTests } from '@japa/run-failed-tests'
-import { processCliArgs, configure, run, TestContext } from '@japa/runner'
-import { Filesystem } from '@poppinss/dev-utils'
-import { resolve } from 'path'
+import { processCliArgs, configure, run } from '@japa/runner'
 
 /*
 |--------------------------------------------------------------------------
@@ -19,7 +16,6 @@ import { resolve } from 'path'
 |
 | Please consult japa.dev/runner-config for the config docs.
 */
-const fs = new Filesystem(resolve(__dirname, '..', 'tmp'))
 
 configure({
   ...processCliArgs(process.argv.slice(2)),

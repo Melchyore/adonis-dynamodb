@@ -33,7 +33,7 @@ export async function setup (environment: 'test' | 'web', dynamodbConfig: Dynamo
   await fs.add(
     'config/dynamodb.ts',
     `
-		const dynamoConfig = ${JSON.stringify(dynamoConfig, null, 2)}
+		const dynamoConfig = ${JSON.stringify(dynamodbConfig, null, 2)}
 		export default dynamoConfig
 	`
   )

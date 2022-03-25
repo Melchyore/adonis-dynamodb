@@ -35,7 +35,7 @@ declare module '@ioc:Adonis/Addons/DynamoDB' {
 
     secretAccessKey: string
 
-    endpont?: string
+    endpoint?: string
   }
 
   export {
@@ -67,6 +67,6 @@ declare module '@ioc:Adonis/Addons/DynamoDB' {
   }
 
   export type DynamoDBContract = typeof Dyngoose
-  const DynamoDB: DynamoDBContract
-  export default DynamoDB
+
+  export const DynamoDB: DynamoDBContract
 }

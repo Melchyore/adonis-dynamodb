@@ -1,8 +1,9 @@
 import { ApplicationContract } from '@ioc:Adonis/Core/Application'
 
-export default class AppProvider {
-  constructor (protected app: ApplicationContract) {
-  }
+export default class DynamoDBProvider {
+  public static needsApplication = true
+
+  constructor (protected app: ApplicationContract) {}
 
   public register () {
     this.app.container.singleton('Adonis/Addons/DynamoDB', () => {
@@ -10,19 +11,15 @@ export default class AppProvider {
       const Config = this.app.container.use('Adonis/Core/Config').get('dynamodb', {})
       const clientInstance = new DynamoDBClient(this.app, Config)
 
-      return clientInstance.getClient()
+      return {
+        DynamoDB: clientInstance.getClient()
+      }
     })
   }
 
-  public async boot () {
-    // IoC container is ready
-  }
+  public async boot () {}
 
-  public async ready () {
-    // App is ready
-  }
+  public async ready () {}
 
-  public async shutdown () {
-    // Cleanup, since app is going down
-  }
+  public async shutdown () {}
 }

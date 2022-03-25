@@ -1,6 +1,8 @@
 import type { DynamoDBConfig } from '@ioc:Adonis/Addons/DynamoDB'
 
-const dynamodbConfig = {
+import Env from '@ioc:Adonis/Core/Env'
+
+const dynamodbConfig: DynamoDBConfig = {
   region: Env.get('AWS_REGION'),
 
   accessKeyId: Env.get('AWS_ACCESS_KEY_ID'),
@@ -10,5 +12,7 @@ const dynamodbConfig = {
   /**
    * Enable this option only for testing purpose.
    */
-  // endpont: Env.get('DYNAMO_ENDPOINT')
+  // endpoint: Env.get('DYNAMO_ENDPOINT')
 }
+
+export default dynamodbConfig

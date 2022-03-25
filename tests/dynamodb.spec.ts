@@ -3,7 +3,6 @@ import type { Query } from '@ioc:Adonis/Addons/DynamoDB'
 import { test } from '@japa/runner'
 
 import { setup, fs, getDynamoDBConfig } from '../bin/test/config'
-
 import Client from '../src/Client'
 
 const dynamoDBConfig = getDynamoDBConfig()
@@ -49,7 +48,7 @@ test.group('DynamoDB Client', (group) => {
     card.id = 15
     card.title = 'Test'
     card.expiresAt = date
-    card.save()
+    await card.save()
 
     await Card.new({
       id: 99065,
