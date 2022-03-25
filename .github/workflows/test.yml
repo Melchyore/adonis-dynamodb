@@ -22,7 +22,7 @@ jobs:
         run: npm install && npm install -g nyc
 
       - name: Run tests
-        run: nyc --reporter=text-lcov node -r @adonisjs/require-ts/build/register ./bin/test/index.ts
+        run: FORCE_COLOR=true nyc --reporter=lcovonly node -r @adonisjs/require-ts/build/register ./bin/test/index.ts
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
