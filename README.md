@@ -9,7 +9,7 @@ A DynamoDB (Dyngoose) wrapper for AdonisJs.
 Dyngoose is a DynamoDB object modeling for Typescript.
 
 ### Why Dyngoose?
-Because it looks like Lucid, you will not be lost. The use of decorators makes it even more attractive to use.
+Because it looks like Lucid, you will not be lost. The use of decorators makes it even more attractive.
 
 ### Docs
 You can find all Dyngoose docs [here](https://github.com/benhutchins/dyngoose/tree/master/docs).
