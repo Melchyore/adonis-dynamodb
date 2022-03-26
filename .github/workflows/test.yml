@@ -9,7 +9,6 @@ jobs:
       matrix:
         node-version:
           - 16.13.1
-          - 17.x
     steps:
       - uses: actions/checkout@v2
 
