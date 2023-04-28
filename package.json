@@ -34,6 +34,7 @@
     "@adonisjs/assembler": "^5.3.0",
     "@adonisjs/mrm-preset": "^5.0.3",
     "@adonisjs/require-ts": "^2.0.10",
+    "@aws-sdk/client-dynamodb": "3.309.0",
     "@istanbuljs/nyc-config-typescript": "^1.0.2",
     "@japa/assert": "^1.2.4",
     "@japa/expect": "^1.1.2",
@@ -71,7 +72,7 @@
     "@adonisjs/core": "^5.4.0"
   },
   "dependencies": {
-    "dyngoose": "^3.0.2"
+    "dyngoose": "^4.1.0"
   },
   "license": "MIT",
   "files": [
@@ -94,6 +95,16 @@
   "np": {
     "contents": ".",
     "anyBranch": false
+  },
+  "prettier": {
+    "trailingComma": "none",
+    "semi": false,
+    "singleQuote": true,
+    "useTabs": false,
+    "quoteProps": "consistent",
+    "bracketSpacing": true,
+    "arrowParens": "always",
+    "printWidth": 100
   },
   "adonisjs": {
     "types": "adonis-dynamodb",
