@@ -13,7 +13,7 @@ services:
       DYNAMO_ENDPOINT: ${DYNAMO_ENDPOINT}
     depends_on:
       - dynamodb
-    command: sh -c "nyc --reporter=text-lcov npm run test:docker"
+    command: sh -c "/wait && nyc --reporter=text-lcov npm run test:docker"
 
   dynamodb:
     command: '-jar DynamoDBLocal.jar -sharedDb -dbPath ./data'
