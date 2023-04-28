@@ -2,10 +2,25 @@ version: '3.8'
 services:
   tests:
     image: adonis-dynamodb
+    network_mode: host
     build:
       context: .
     environment:
+      WAIT_HOSTS: 0.0.0.0:8000
       AWS_ACCESS_KEY_ID: ${AWS_ACCESS_KEY_ID}
       AWS_SECRET_ACCESS_KEY: ${AWS_SECRET_ACCESS_KEY}
       AWS_REGION: ${AWS_REGION}
+      DYNAMO_ENDPOINT: ${DYNAMO_ENDPOINT}
+    depends_on:
+      - dynamodb
     command: sh -c "nyc --reporter=text-lcov npm run test:docker"
+
+  dynamodb:
+    command: '-jar DynamoDBLocal.jar -sharedDb -dbPath ./data'
+    image: 'amazon/dynamodb-local:latest'
+    container_name: dynamodb
+    ports:
+      - '8000:8000'
+    volumes:
+      - './docker/dynamodb:/home/dynamodblocal/data'
+    working_dir: /home/dynamodblocal

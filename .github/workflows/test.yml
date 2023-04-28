@@ -8,12 +8,12 @@ jobs:
     strategy:
       matrix:
         node-version:
-          - 16.13.1
+          - 16.14.0
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
 
       - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
 
@@ -26,6 +26,7 @@ jobs:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           AWS_REGION: ${{ secrets.AWS_REGION }}
+          DYNAMO_ENDPOINT: ${{ secrets.DYNAMO_ENDPOINT }}
 
       - name: Coveralls
         uses: coverallsapp/github-action@master
