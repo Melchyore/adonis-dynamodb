@@ -11,7 +11,7 @@ export default class Drop extends Base {
 
   public static settings = {
     loadApp: true,
-    stayAlive: true,
+    stayAlive: true
   }
 
   @args.string({
@@ -20,7 +20,7 @@ export default class Drop extends Base {
   })
   public name?: string
 
-  public async run () {
+  public async run() {
     let tables: Array<typeof Table> = []
     let question = 'Are you sure you want to delete '
 
@@ -41,7 +41,7 @@ export default class Drop extends Base {
     const confirmation = await this.prompt.confirm(question)
 
     if (confirmation) {
-      for (const deleteTable of tables.map(_table => () => this.deleteTable(_table))) {
+      for (const deleteTable of tables.map((_table) => () => this.deleteTable(_table))) {
         await deleteTable()
       }
 
@@ -49,7 +49,7 @@ export default class Drop extends Base {
     }
   }
 
-  private async deleteTable (table: typeof Table): Promise<void> {
+  private async deleteTable(table: typeof Table): Promise<void> {
     const spinner = this.logger.await(`Deleting table ${table.name}`, undefined, undefined)
 
     try {

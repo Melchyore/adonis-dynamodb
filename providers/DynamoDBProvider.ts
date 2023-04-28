@@ -3,9 +3,9 @@ import { ApplicationContract } from '@ioc:Adonis/Core/Application'
 export default class DynamoDBProvider {
   public static needsApplication = true
 
-  constructor (protected app: ApplicationContract) {}
+  constructor(protected app: ApplicationContract) {}
 
-  public register () {
+  public register() {
     this.app.container.singleton('Adonis/Addons/DynamoDB', () => {
       const DynamoDBClient = require('../src/Client').default
       const Config = this.app.container.use('Adonis/Core/Config').get('dynamodb', {})
@@ -17,9 +17,9 @@ export default class DynamoDBProvider {
     })
   }
 
-  public async boot () {}
+  public async boot() {}
 
-  public async ready () {}
+  public async ready() {}
 
-  public async shutdown () {}
+  public async shutdown() {}
 }

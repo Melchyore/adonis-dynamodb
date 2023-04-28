@@ -10,7 +10,7 @@ export default class Make extends Base {
 
   public static settings = {
     loadApp: true,
-    stayAlive: false,
+    stayAlive: false
   }
 
   @args.string({
@@ -22,7 +22,7 @@ export default class Make extends Base {
   @flags.string()
   public pk: string = 'id'
 
-  public async run () {
+  public async run() {
     const stub = join(__dirname, '..', 'templates', 'table.txt')
 
     this.generator

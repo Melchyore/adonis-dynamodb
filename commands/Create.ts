@@ -20,7 +20,7 @@ export default class Create extends Base {
   })
   public name?: string
 
-  public async run () {
+  public async run() {
     let tables: Array<typeof Table> = []
 
     if (this.name) {
@@ -29,14 +29,14 @@ export default class Create extends Base {
       tables = await this.getTables()
     }
 
-    for (const createTable of tables.map(_table => () => this.createTable(_table))) {
+    for (const createTable of tables.map((_table) => () => this.createTable(_table))) {
       await createTable()
     }
 
     await this.exit()
   }
 
-  private async createTable (table: typeof Table): Promise<void> {
+  private async createTable(table: typeof Table): Promise<void> {
     const spinner = this.logger.await(`Creating table ${table.name}`, undefined, undefined)
 
     try {

@@ -13,11 +13,11 @@ const dynamoConfig = {
   endpoint: process.env.DYNAMO_ENDPOINT
 }
 
-export function getDynamoDBConfig () {
+export function getDynamoDBConfig() {
   return dynamoConfig
 }
 
-export async function setup (environment: 'test' | 'web', dynamodbConfig: DynamoDBConfig) {
+export async function setup(environment: 'test' | 'web', dynamodbConfig: DynamoDBConfig) {
   await fs.add('.env', '')
   await fs.add(
     'config/app.ts',
@@ -39,10 +39,7 @@ export async function setup (environment: 'test' | 'web', dynamodbConfig: Dynamo
   )
 
   const app = new Application(fs.basePath, environment, {
-    providers: [
-      '@adonisjs/core',
-      '../../../providers/DynamoDBProvider'
-    ],
+    providers: ['@adonisjs/core', '../../../providers/DynamoDBProvider']
   })
 
   await app.setup()

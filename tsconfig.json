@@ -1,15 +1,10 @@
 {
-	"compilerOptions": {
-		"experimentalDecorators": true,
-		"emitDecoratorMetadata": true,
-		"skipLibCheck": true,
-		"types": [
-			"@adonisjs/core",
-			"@types/node"
-		]
-	},
-	"extends": "./node_modules/@adonisjs/mrm-preset/_tsconfig",
-	"files": [
-		"./adonis-typings/index.ts"
-	]
+  "compilerOptions": {
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "skipLibCheck": true,
+    "types": ["@adonisjs/core", "@types/node"]
+  },
+  "extends": "./node_modules/@adonisjs/mrm-preset/_tsconfig",
+  "files": ["./adonis-typings/index.ts"]
 }

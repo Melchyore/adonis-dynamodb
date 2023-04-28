@@ -5,8 +5,8 @@ import { ApplicationContract } from '@ioc:Adonis/Core/Application'
 declare module '@japa/runner' {
   interface TestContext {
     // notify TypeScript about custom context properties
-    expect: Expect,
-    assert: Assert,
+    expect: Expect
+    assert: Assert
     app: ApplicationContract
   }
 

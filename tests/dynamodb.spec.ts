@@ -14,10 +14,7 @@ test.group('DynamoDB Client', (group) => {
 
   test('client should create table and put items', async ({ expect }) => {
     const app = await setup('test', dynamoDBConfig)
-    const DynamoDB = (new Client(
-      app,
-      dynamoDBConfig
-    )).getClient()
+    const DynamoDB = new Client(app, dynamoDBConfig).getClient()
 
     @DynamoDB.$Table({
       name: 'AdonisCardTableDynamoDBTest'
@@ -63,21 +60,20 @@ test.group('DynamoDB Client', (group) => {
       results.push(record.toJSON())
     }
 
-    expect(results)
-      .toEqual(
-        expect.arrayContaining([
-          expect.objectContaining({
-            id: 15,
-            title: 'Test',
-            expiresAt: date
-          }),
-          expect.objectContaining({
-            id: 99065,
-            title: 'Foo',
-            expiresAt: date
-          })
-        ])
-      )
+    expect(results).toEqual(
+      expect.arrayContaining([
+        expect.objectContaining({
+          id: 15,
+          title: 'Test',
+          expiresAt: date
+        }),
+        expect.objectContaining({
+          id: 99065,
+          title: 'Foo',
+          expiresAt: date
+        })
+      ])
+    )
 
     await Card.deleteTable()
   }).disableTimeout()
