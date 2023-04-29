@@ -34,7 +34,7 @@ test.group('DynamoDB Client', (group) => {
         @DynamoDB.Attribute.String()
         public title: string
 
-        @DynamoDB.Attribute.Date({ timeToLive: true })
+        @DynamoDB.Attribute.Date()
         public expiresAt: number | Date
       }
 
@@ -49,6 +49,8 @@ test.group('DynamoDB Client', (group) => {
       }*/
 
       const date = +new Date() + 60 * 60 * 1000
+
+      console.log(3)
 
       const card = new Card()
       card.id = 15
