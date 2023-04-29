@@ -40,13 +40,13 @@ test.group('DynamoDB Client', (group) => {
 
       console.log(2)
 
-      try {
+      /*try {
         await Card.createTable()
 
         console.log(3)
       } catch {
         console.log('Table already created')
-      }
+      }*/
 
       const date = +new Date() + 60 * 60 * 1000
 
