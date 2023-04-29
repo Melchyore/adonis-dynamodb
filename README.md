@@ -151,7 +151,7 @@ if (record) {
 }
 ```
 
-[gh-workflow-image]: https://img.shields.io/github/workflow/status/Melchyore/adonis-dynamodb/test?style=for-the-badge
+[gh-workflow-image]: https://img.shields.io/github/actions/workflow/status/Melchyore/adonis-dynamodb/test.yml?style=for-the-badge
 [gh-workflow-url]: https://github.com/Melchyore/adonis-dynamodb/actions/workflows/test.yml "Github action"
 
 [coverage-image]: https://img.shields.io/coveralls/github/Melchyore/adonis-dynamodb/master?style=for-the-badge
