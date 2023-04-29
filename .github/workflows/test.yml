@@ -11,7 +11,24 @@ jobs:
           - 18.14.1
           - 19.x
     steps:
+      - uses: KengoTODA/actions-setup-docker-compose@v1
+        if: ${{ env.ACT }}
+        name: Install `docker-compose` for local simulations
+        with:
+          version: '2.14.2'
+
       - uses: actions/checkout@v3
+
+      - name: Setup DynamoDB Local
+        if: ${{ env.GITHUB_ACTIONS }}
+        uses: rrainn/dynamodb-action@v2.0.1
+        with:
+          dbPath: # undefined by default, if this is undefined inMemory will be used
+          sharedDb: # undefined by default
+          delayTransientStatuses: # undefined by default
+          optimizeDbBeforeStartup: # undefined by default
+          port: 8001
+          cors: '*'
 
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v3

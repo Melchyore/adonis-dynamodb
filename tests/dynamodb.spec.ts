@@ -13,13 +13,9 @@ test.group('DynamoDB Client', (group) => {
   })
 
   test('client should create table and put items', async ({ expect }) => {
-    console.log(0)
-
     try {
       const app = await setup('test', dynamoDBConfig)
       const DynamoDB = new Client(app, dynamoDBConfig).getClient()
-
-      console.log(1)
 
       @DynamoDB.$Table({
         name: 'AdonisCardTableDynamoDBTest'
@@ -38,29 +34,21 @@ test.group('DynamoDB Client', (group) => {
         public expiresAt: Date
       }
 
-      console.log(2)
-
-      /*try {
+      try {
         await Card.createTable()
-
-        console.log(3)
       } catch {
         console.log('Table already created')
-      }*/
+      }
 
       const card = new Card()
       card.id = 15
       card.title = 'Test'
       await card.save()
 
-      console.log(4)
-
       await Card.new({
         id: 99065,
         title: 'Foo'
       }).save()
-
-      console.log(5)
 
       const records = await Card.primaryKey.scan()
       const results: Array<Record<string, unknown>> = []
@@ -84,8 +72,6 @@ test.group('DynamoDB Client', (group) => {
 
       await Card.deleteTable()
     } catch (e) {
-      console.log(10)
-
       throw e
     }
   }).disableTimeout()

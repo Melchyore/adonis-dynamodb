@@ -6,21 +6,21 @@ services:
     build:
       context: .
     environment:
-      WAIT_HOSTS: 0.0.0.0:8004
+      WAIT_HOSTS: 0.0.0.0:8000, 0.0.0.0:8001
       AWS_ACCESS_KEY_ID: ${AWS_ACCESS_KEY_ID}
       AWS_SECRET_ACCESS_KEY: ${AWS_SECRET_ACCESS_KEY}
       AWS_REGION: ${AWS_REGION}
       DYNAMO_ENDPOINT: ${DYNAMO_ENDPOINT}
     depends_on:
-      - dynamodb
+      - adonis-dynamodb-local
     command: sh -c "/wait && nyc --reporter=text-lcov npm run test:docker"
 
-  dynamodb:
-    command: '-jar DynamoDBLocal.jar -sharedDb -dbPath ./data'
+  adonis-dynamodb-local:
     image: 'amazon/dynamodb-local:latest'
-    container_name: dynamodb
+    container_name: adonis-dynamodb-local
     ports:
-      - '8004:8000'
+      - '8000:8000'
     volumes:
       - './docker/dynamodb:/home/dynamodblocal/data'
-    working_dir: /home/dynamodblocal
+    #working_dir: /home/dynamodblocal
+    command: '-jar DynamoDBLocal.jar -sharedDb -dbPath /home/dynamodblocal/data/'
