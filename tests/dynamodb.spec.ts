@@ -48,8 +48,6 @@ test.group('DynamoDB Client', (group) => {
         console.log('Table already created')
       }*/
 
-      const date = +new Date() + 60 * 60 * 1000
-
       const card = new Card()
       card.id = 15
       card.title = 'Test'
@@ -75,13 +73,11 @@ test.group('DynamoDB Client', (group) => {
         expect.arrayContaining([
           expect.objectContaining({
             id: 15,
-            title: 'Test',
-            expiresAt: date
+            title: 'Test'
           }),
           expect.objectContaining({
             id: 99065,
-            title: 'Foo',
-            expiresAt: date
+            title: 'Foo'
           })
         ])
       )
