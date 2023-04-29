@@ -48,7 +48,7 @@ test.group('DynamoDB Client', (group) => {
         console.log('Table already created')
       }*/
 
-      const date = +new Date() + 60 * 60 * 1000
+      const date = new Date()
 
       console.log(3)
 
