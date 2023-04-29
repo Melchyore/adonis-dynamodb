@@ -59,7 +59,6 @@
     "local-dynamo": "^0.6.0",
     "mrm": "^3.0.10",
     "np": "^7.6.1",
-    "nyc": "^15.1.0",
     "pino-pretty": "^7.5.4",
     "prettier": "^2.6.0",
     "reflect-metadata": "^0.1.13",
