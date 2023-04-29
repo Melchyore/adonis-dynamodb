@@ -22,6 +22,7 @@ RUN npm install @adonisjs/core
 
 RUN mkdir -p ./.nyc_output
 RUN mkdir -p ./coverage
+RUN mkdir -p ./docker/dynamodb
 
 COPY . .
 
