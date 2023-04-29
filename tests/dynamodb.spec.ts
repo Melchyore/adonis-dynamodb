@@ -34,8 +34,8 @@ test.group('DynamoDB Client', (group) => {
         @DynamoDB.Attribute.String()
         public title: string
 
-        @DynamoDB.Attribute.Date()
-        public expiresAt: number | Date
+        @DynamoDB.Attribute.Date({ nowOnCreate: true })
+        public expiresAt: Date
       }
 
       console.log(2)
@@ -48,22 +48,18 @@ test.group('DynamoDB Client', (group) => {
         console.log('Table already created')
       }*/
 
-      const date = new Date()
-
-      console.log(3)
+      const date = +new Date() + 60 * 60 * 1000
 
       const card = new Card()
       card.id = 15
       card.title = 'Test'
-      card.expiresAt = date
       await card.save()
 
       console.log(4)
 
       await Card.new({
         id: 99065,
-        title: 'Foo',
-        expiresAt: date
+        title: 'Foo'
       }).save()
 
       console.log(5)
