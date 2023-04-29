@@ -16,3 +16,4 @@ dist
 shrinkwrap.yaml
 *.lock
 docker
+.secrets

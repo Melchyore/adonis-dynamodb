@@ -18,7 +18,7 @@
     "coverage": "nyc npm run test",
     "test": "docker-compose build && docker-compose run --rm tests",
     "clean": "del-cli build",
-    "test:docker": "FORCE_COLOR=true node -r @adonisjs/require-ts/build/register ./bin/test/index.ts",
+    "test:docker": "FORCE_COLOR=true nyc node -r @adonisjs/require-ts/build/register ./bin/test/index.ts",
     "build": "npm run compile",
     "lint": "eslint . --ext=.ts",
     "compile": "npm run lint && npm run clean && tsc && npm run copyfiles",
